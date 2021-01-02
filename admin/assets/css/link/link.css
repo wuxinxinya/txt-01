@@ -1,0 +1,14 @@
+.layui-card {
+  padding-top: 10px;
+}
+.layui-card-header .lian {
+  float: right;
+}
+.img-edit {
+  display: inline-block;
+  height: 20px;
+}
+
+.layui-table tbody tr div {
+  text-align: center;
+}

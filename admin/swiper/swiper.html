@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>轮播图</title>
+  <link rel="stylesheet" href="../assets/css/swiper.css">
+  <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+
+</head>
+
+<body>
+
+  <div class="layui-card">
+    <div class="layui-card-header" id="header">
+      轮播图管理
+      <div class="btn-file">
+        <input hidden multiple type="file" id="file">
+        <button type="button" class="layui-btn layui-btn-normal addFiles">
+          <i class="layui-icon layui-icon-upload "></i>
+          上传图片
+        </button>
+      </div>
+    </div>
+
+    <div class="layui-card-body">
+      <table class="layui-table">
+        <colgroup>
+          <col width="10%">
+          <col width="35%">
+          <col width="35%">
+          <col width="10%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>图片预览</th>
+            <th>图片路径</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 轮播图 start -->
+  <script type="text/html" id="tpl-list">
+    {{ each data item }}
+    <tr>
+      <td>{{item.id}}</td>
+      <td>
+        <img src="{{'http://localhost:8888/uploads/'+item.swiperimg}}" alt="">
+      </td>
+      <td>{{item.swiperimg}}</td>
+      <td>
+        {{if item.swiperstatus===1}}
+        <span data-id={{item.id}} data-status='2' class="layui-badge layui-bg-green box">√</span>
+        {{else}}
+        <span data-id={{item.id}} data-status='1' class="layui-badge layui-bg-cyan box">×</span>
+        {{/if}}
+      </td>
+      <td>
+        <button type="button" data-id={{item.id}} class="layui-btn layui-btn-danger layui-btn-xs delete" >删除</button>
+      </td>
+    </tr>
+    {{ /each }}
+  </script>
+  <!-- 轮播图 end  -->
+  <script src="../assets/lib/jquery.js"></script>
+  <script src="../assets/lib/layui/layui.all.js"></script>
+  <script src="../assets/lib/template-web.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/swiper/swiper.js"></script>
+
+
+</body>
+
+</html>
